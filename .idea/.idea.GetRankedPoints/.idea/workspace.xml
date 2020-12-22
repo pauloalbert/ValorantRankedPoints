@@ -4,11 +4,19 @@
     <projectFile>GetRankedPoints/GetRankedPoints.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="" />
+    <list default="true" id="aec415f8-7f7d-4f02-b04e-3f0e0ffdcffe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GetRankedPoints/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetRankedPoints/GetRankedPoints.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/GetRankedPoints.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetRankedPoints/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GetRankedPoints/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -17,6 +25,7 @@
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lzhSKmpmQQSAu09QF4qpGAowzf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,15 +70,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608605828297</updated>
-      <workItem from="1608605835477" duration="4148000" />
+      <workItem from="1608605835477" duration="4890000" />
+      <workItem from="1608612282119" duration="864000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

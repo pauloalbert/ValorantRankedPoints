@@ -8,6 +8,7 @@
         <e p="Authentication.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="FodyWeavers.xml" t="Include" />
+        <e p="FodyWeavers.xsd" t="Include" />
         <e p="GetRankedPoints.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Release" t="Include">

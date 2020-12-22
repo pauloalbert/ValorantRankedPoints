@@ -16,11 +16,12 @@ namespace GetRankedPoints
         public static string username { get; set; }
         public static string password { get; set; }
         public static string UserID  { get; set; }
+        public static string region { get; set; }
         
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Ranked Point Checker {EU}");
-            Console.WriteLine("Checking Config File..");
+            Console.WriteLine("Welcome to the Ranked Point Checker");
+            Console.WriteLine("Checking Config File.."); 
             if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "config.json")))
             {
                 Console.WriteLine("Config File not found, please add config file.");
@@ -47,6 +48,7 @@ namespace GetRankedPoints
             JToken localObj = JToken.FromObject(localJSON);
             username = localObj["username"].Value<string>();
             password = localObj["password"].Value<string>();
+            region = localObj["region"].Value<string>();
             Console.WriteLine($"Found Username: {username}");
             
         }
@@ -108,7 +110,7 @@ namespace GetRankedPoints
         {
             try
             {
-                RestClient ranked_client = new RestClient(new Uri($"https://pd.ap.a.pvp.net/mmr/v1/players/{UserID}/competitiveupdates?startIndex=0&endIndex=20"));
+                RestClient ranked_client = new RestClient(new Uri($"https://pd.{region}.a.pvp.net/mmr/v1/players/{UserID}/competitiveupdates?startIndex=0&endIndex=20"));
                 RestRequest ranked_request = new RestRequest(Method.GET);
             
                 ranked_request.AddHeader("Authorization", $"Bearer {AccessToken}");
@@ -124,7 +126,13 @@ namespace GetRankedPoints
                     {
                         if (game["TierProgressAfterUpdate"] == "0")
                         {
-                            
+                            // Only God knows why i put this here.
+                        }
+                        else if (game["CompetitiveMovement"] == "PROMOTED")
+                        {
+                            Console.WriteLine($"Detected Rank up in last match, Current points in Rank: {game["TierProgressAfterUpdate"].ToString()}");
+                            Console.ReadKey();
+                            Environment.Exit(1);
                         }
                         else
                         {
@@ -142,7 +150,7 @@ namespace GetRankedPoints
                             }
                             else
                             {
-                                int num = after - before;
+                                int num = (after - before)* -1;
                                 Console.WriteLine($"Congrats you lost: {num} points");
                                 Console.ReadKey();
                                 Environment.Exit(1);

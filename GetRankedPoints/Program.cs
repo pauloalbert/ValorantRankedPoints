@@ -120,13 +120,31 @@ namespace GetRankedPoints
                 if (rankedresp.IsSuccessful)
                 {
                     dynamic RankedJson = JsonConvert.DeserializeObject<JObject>(rankedresp.Content);
-                    // Debugging IGNORE Console.WriteLine(RankedJson);
-                    dynamic store = RankedJson["Matches"];
+                    // Debugging IGNORE
+                    Console.WriteLine(RankedJson);
+                    var store = RankedJson["Matches"];
                     foreach (var game in store)
                     {
-                        if (game["TierProgressAfterUpdate"] == "0")
+                        if (game["CompetitiveMovement"] != "MOVEMENT_UNKNOWN")
                         {
-                            // Only God knows why i put this here.
+                            Console.WriteLine("Ranked Game detected.");
+                            int before = game["TierProgressBeforeUpdate"];
+                            int after = game["TierProgressAfterUpdate"];
+                            Console.WriteLine($"Points Before: {before}");
+                            Console.WriteLine($"Points After: {after}");
+
+                            int num = after - before;
+
+                            string str = before < after ? str = $"Congrats you gained: {num} points"
+                                : str = $"Congrats you lost: {num * -1} points";
+
+                            Console.WriteLine(str);
+                            Console.ReadKey();
+                            Environment.Exit(1);
+
+                            //int num = before - after;
+
+                            //Console.WriteLine($"Net gain/loss: {num} points");
                         }
                         else if (game["CompetitiveMovement"] == "PROMOTED")
                         {
@@ -136,25 +154,7 @@ namespace GetRankedPoints
                         }
                         else
                         {
-                            Console.WriteLine("Possible Ranked Game detected.");
-                            Console.WriteLine($"Points Before: {game["TierProgressBeforeUpdate"].ToString()}");
-                            Console.WriteLine($"Points After: {game["TierProgressAfterUpdate"].ToString()}");
-                            int before = game["TierProgressBeforeUpdate"];
-                            int after = game["TierProgressAfterUpdate"];
-                            if (before < after)
-                            {
-                                int num = before - after;
-                                Console.WriteLine($"Congrats you gained: {num} points");
-                                Console.ReadKey();
-                                Environment.Exit(1);
-                            }
-                            else
-                            {
-                                int num = (after - before)* -1;
-                                Console.WriteLine($"Congrats you lost: {num} points");
-                                Console.ReadKey();
-                                Environment.Exit(1);
-                            }
+                            // Game does not register as a ranked game.
                         }
                     }
                 }
